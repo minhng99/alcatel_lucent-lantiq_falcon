@@ -1,0 +1,130 @@
+Oct  8 07:26:02 SFP syslog.info syslogd started: BusyBox v1.19.4
+Oct  8 07:26:02 SFP kern.notice kernel: klogd started: BusyBox v1.19.4 (2015-02-14 18:25:19 CST)
+Oct  8 07:26:02 SFP kern.notice kernel: [    0.000000] Linux version 3.10.12 (jairo@localhost.localdomain) (gcc version 4.6.3 20120201 (prerelease) (Linaro GCC 4.6-2012.02) ) #95 Fri Jun 12 15:26:05 CST 2015
+Oct  8 07:26:02 SFP kern.info kernel: [    0.000000] SoC: Falcon rev A22
+Oct  8 07:26:02 SFP kern.info kernel: [    0.000000] bootconsole [early0] enabled
+Oct  8 07:26:02 SFP kern.info kernel: [    0.000000] CPU revision is: 00019556 (MIPS 34Kc)
+Oct  8 07:26:02 SFP kern.info kernel: [    0.000000] MIPS: machine is SFP - Lantiq Falcon SFP Stick
+Oct  8 07:26:02 SFP kern.warn kernel: [    0.000000] e=memsize=64
+Oct  8 07:26:02 SFP kern.warn kernel: [    0.000000] e=initrd_start=0xA0000000
+Oct  8 07:26:02 SFP kern.warn kernel: [    0.000000] e=initrd_size=0x0
+Oct  8 07:26:02 SFP kern.warn kernel: [    0.000000] e=flash_start=0xB0000000
+Oct  8 07:26:02 SFP kern.warn kernel: [    0.000000] e=flash_size=0x118623E5
+Oct  8 07:26:02 SFP kern.warn kernel: [    0.000000] e=ethaddr=00:06:B5:06:8C:7B
+Oct  8 07:26:02 SFP kern.warn kernel: [    0.000000] MEMSIZE = 67108864
+Oct  8 07:26:02 SFP kern.info kernel: [    0.000000] Determined physical RAM map:
+Oct  8 07:26:02 SFP kern.info kernel: [    0.000000]  memory: 04000000 @ 00000000 (usable)
+Oct  8 07:26:02 SFP kern.info kernel: [    0.000000] debug: ignoring loglevel setting.
+Oct  8 07:26:02 SFP kern.info kernel: [    0.000000] User-defined physical RAM map:
+Oct  8 07:26:02 SFP kern.info kernel: [    0.000000]  memory: 03f00000 @ 00000000 (usable)
+Oct  8 07:26:02 SFP kern.info kernel: [    0.000000] Initrd not found or empty - disabling initrd
+Oct  8 07:26:02 SFP kern.warn kernel: [    0.000000] Zone ranges:
+Oct  8 07:26:02 SFP kern.warn kernel: [    0.000000]   Normal   [mem 0x00000000-0x03efffff]
+Oct  8 07:26:02 SFP kern.warn kernel: [    0.000000] Movable zone start for each node
+Oct  8 07:26:02 SFP kern.warn kernel: [    0.000000] Early memory node ranges
+Oct  8 07:26:02 SFP kern.warn kernel: [    0.000000]   node   0: [mem 0x00000000-0x03efffff]
+Oct  8 07:26:02 SFP kern.debug kernel: [    0.000000] On node 0 totalpages: 16128
+Oct  8 07:26:02 SFP kern.debug kernel: [    0.000000] free_area_init_node: node 0, pgdat 8030c5f0, node_mem_map 81003460
+Oct  8 07:26:02 SFP kern.debug kernel: [    0.000000]   Normal zone: 126 pages used for memmap
+Oct  8 07:26:02 SFP kern.debug kernel: [    0.000000]   Normal zone: 0 pages reserved
+Oct  8 07:26:02 SFP kern.debug kernel: [    0.000000]   Normal zone: 16128 pages, LIFO batch:3
+Oct  8 07:26:02 SFP kern.warn kernel: [    0.000000] Primary instruction cache 32kB, VIPT, 4-way, linesize 32 bytes.
+Oct  8 07:26:02 SFP kern.info kernel: [    0.000000] Readback ErrCtl register=000722ce
+Oct  8 07:26:02 SFP kern.info kernel: [    0.000000] Memory: 60212k/64512k available (2558k kernel code, 4300k reserved, 668k data, 220k init, 0k highmem)
+Oct  8 07:26:02 SFP kern.info kernel: [    0.000000] NR_IRQS:328
+Oct  8 07:26:02 SFP kern.info kernel: [    0.000000] Setting up vectored interrupts
+Oct  8 07:26:02 SFP kern.info kernel: [    0.000000] CPU Clock: 400MHz
+Oct  8 07:26:02 SFP kern.info kernel: [    0.032000] Calibrating delay loop... 265.98 BogoMIPS (lpj=531968)
+Oct  8 07:26:02 SFP kern.info kernel: [    0.036000] pid_max: default: 32768 minimum: 301
+Oct  8 07:26:02 SFP kern.info kernel: [    0.040000] Mount-cache hash table entries: 512
+Oct  8 07:26:02 SFP kern.info kernel: [    0.048000] pinctrl core: initialized pinctrl subsystem
+Oct  8 07:26:02 SFP kern.info kernel: [    0.052000] NET: Registered protocol family 16
+Oct  8 07:26:02 SFP kern.info kernel: [    0.072000] pinctrl-falcon pinctrl.0: Init done
+Oct  8 07:26:02 SFP kern.info kernel: [    0.076000] FALC(tm) ON clock driver
+Oct  8 07:26:03 SFP kern.info kernel: [    0.080000] clockevent device FALCON_CLK_EVT with timer 4, irq 124
+Oct  8 07:26:03 SFP kern.info kernel: [    0.100000] bio: create slab <bio-0> at 0
+Oct  8 07:26:03 SFP kern.info kernel: [    0.104000] FALC(tm) ON GPIO Driver, (C) 2012 Lantiq Deutschland Gmbh
+Oct  8 07:26:03 SFP kern.info kernel: [    0.112000] Switching to clocksource FALCON
+Oct  8 07:26:03 SFP kern.info kernel: [    0.120000] NET: Registered protocol family 2
+Oct  8 07:26:03 SFP kern.info kernel: [    0.124000] TCP established hash table entries: 512 (order: 0, 4096 bytes)
+Oct  8 07:26:03 SFP kern.info kernel: [    0.132000] TCP bind hash table entries: 512 (order: -1, 2048 bytes)
+Oct  8 07:26:03 SFP kern.info kernel: [    0.136000] TCP: Hash tables configured (established 512 bind 512)
+Oct  8 07:26:03 SFP kern.info kernel: [    0.144000] TCP: reno registered
+Oct  8 07:26:03 SFP kern.info kernel: [    0.148000] UDP hash table entries: 256 (order: 0, 4096 bytes)
+Oct  8 07:26:03 SFP kern.info kernel: [    0.152000] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+Oct  8 07:26:03 SFP kern.info kernel: [    0.160000] NET: Registered protocol family 1
+Oct  8 07:26:03 SFP kern.info kernel: [    0.164000] RPC: Registered named UNIX socket transport module.
+Oct  8 07:26:03 SFP kern.info kernel: [    0.168000] RPC: Registered udp transport module.
+Oct  8 07:26:03 SFP kern.info kernel: [    0.176000] RPC: Registered tcp transport module.
+Oct  8 07:26:03 SFP kern.info kernel: [    0.180000] RPC: Registered tcp NFSv4.1 backchannel transport module.
+Oct  8 07:26:03 SFP kern.info kernel: [    0.188000] EASY98000 LED driver, Version 1.0.1 (c) Copyright 2013, Lantiq Deutschland GmbH
+Oct  8 07:26:03 SFP kern.info kernel: [    0.200000] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+Oct  8 07:26:03 SFP kern.info kernel: [    0.204000] jffs2: version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.
+Oct  8 07:26:03 SFP kern.info kernel: [    0.216000] msgmni has been set to 117
+Oct  8 07:26:03 SFP kern.info kernel: [    0.220000] io scheduler noop registered
+Oct  8 07:26:03 SFP kern.info kernel: [    0.224000] io scheduler deadline registered (default)
+Oct  8 07:26:03 SFP kern.info kernel: [    0.232000] 1e100c00.serial: ttyLTQ0 at MMIO 0x1e100c00 (irq = 104) is a lantiq,asc
+Oct  8 07:26:03 SFP kern.info kernel: [    0.236000] console [ttyLTQ0] enabled, bootconsole disabled
+Oct  8 07:26:03 SFP kern.warn kernel: [    0.256000] m25p80 spi32766.0: found s25fl129p1, expected s25fl129p0
+Oct  8 07:26:03 SFP kern.info kernel: [    0.260000] m25p80 spi32766.0: s25fl129p1 (16384 Kbytes)
+Oct  8 07:26:03 SFP kern.notice kernel: [    0.264000] 4 cmdlinepart partitions found on MTD device sflash
+Oct  8 07:26:03 SFP kern.notice kernel: [    0.272000] Creating 4 MTD partitions on "sflash":
+Oct  8 07:26:03 SFP kern.notice kernel: [    0.276000] 0x000000000000-0x000000040000 : "uboot"
+Oct  8 07:26:03 SFP kern.notice kernel: [    0.284000] 0x000000040000-0x0000000c0000 : "uboot_env"
+Oct  8 07:26:03 SFP kern.notice kernel: [    0.288000] 0x0000000c0000-0x000000800000 : "linux"
+Oct  8 07:26:03 SFP kern.notice kernel: [    0.296000] 0x0000001e1124-0x000000800000 : "rootfs"
+Oct  8 07:26:03 SFP kern.warn kernel: [    0.300000] mtd: partition "rootfs" must either start or end on erase block boundary or be smaller than an erase block -- forcing read-only
+Oct  8 07:26:03 SFP kern.info kernel: [   12.420000] Freeing unused kernel memory: 220K (80329000 - 80360000)
+Oct  8 07:26:03 SFP kern.notice kernel: [   19.300000] jffs2: notice: (378) jffs2_build_xattr_subsystem: complete building xattr subsystem, 4 of xdatum (0 unchecked, 3 orphan) and 103 of xref (0 dead, 86 orphan) found.
+Oct  8 07:26:03 SFP kern.info kernel: [   21.680000] IFXOS, Version 1.5.19 (c) Copyright 2009, Lantiq Deutschland GmbH
+Oct  8 07:26:03 SFP kern.info kernel: [   21.708000] Button Hotplug driver version 0.4.1
+Oct  8 07:26:03 SFP kern.info kernel: [   21.736000] GPON SFP I2C Slave Driver, Version 1.5.0 (c) Copyright 2013, Lantiq Deutschland GmbH
+Oct  8 07:26:03 SFP kern.info kernel: [   21.744000] [sfp_i2c] I2C-module id=87 revision=2
+Oct  8 07:26:03 SFP kern.warn kernel: [   22.020000] FALC(tm) ON Optic Driver, version 6.4.1 (c) Copyright 2013, Lantiq Deutschland GmbH
+Oct  8 07:26:03 SFP kern.warn kernel: [   22.664000] FALC(tm) ON Base Driver, Version 6.4.2.0 Copyright (c) 2013, Lantiq Deutschland GmbH
+Oct  8 07:26:03 SFP kern.err kernel: [   22.676000] [onu] gpe_table[39] FIO_GPE_SCE_CONSTANTS_GET - cmd 0xc0600527 - write size 0
+Oct  8 07:26:03 SFP kern.info kernel: [   22.700000] FALC(tm) ON Ethernet Driver, Version 0.7.0 Copyright (c) 2013, Lantiq Deutschland GmbH
+Oct  8 07:26:05 SFP daemon.notice netifd: Interface 'lan0' is now up
+Oct  8 07:26:05 SFP daemon.notice netifd: Interface 'lct' is now up
+Oct  8 07:26:05 SFP daemon.notice netifd: Interface 'loopback' is now up
+Oct  8 07:26:05 SFP daemon.notice netifd: Interface 'wan' is now up
+Oct  8 07:26:09 SFP user.info sysinit: could not parse '	
+Oct  8 07:26:09 SFP user.info sysinit: '
+Oct  8 07:26:09 SFP user.info sysinit: could not parse '^M
+Oct  8 07:26:09 SFP user.info sysinit: '
+Oct  8 07:26:12 SFP daemon.info ipwatchd[696]: IPwatchD started
+Oct  8 07:26:13 SFP user.notice onu: Using ploam serial number: SPSPB5068C7B
+Oct  8 07:26:13 SFP kern.warn kernel: [   35.052000] [onu] serial number: SPSPB5068C7B
+Oct  8 07:26:14 SFP kern.warn kernel: [   35.304000] [onu] password: 0000000001
+Oct  8 07:26:14 SFP kern.info kernel: [   35.472000] [onu] GPHY Firmware loaded into RAM (phy11g.bin)
+Oct  8 07:26:14 SFP kern.err kernel: [   35.576000] [onu] PE[255] firmware loaded v9.47.0.0
+Oct  8 07:26:15 SFP user.info sysinit: Setup lct
+Oct  8 07:26:15 SFP daemon.notice netifd: Interface 'lct' is now down
+Oct  8 07:26:15 SFP daemon.notice netifd: Interface 'lct' is now up
+Oct  8 07:26:16 SFP user.info sysinit: Error setting string, invalid index?
+Oct  8 07:26:16 SFP user.info sysinit: open i2c device error.
+Oct  8 07:26:16 SFP user.info sysinit: Error setting string, invalid index?
+Oct  8 07:26:16 SFP user.info sysinit: open i2c device error.
+Oct  8 07:26:16 SFP user.info sysinit: Error setting string, invalid index?
+Oct  8 07:26:16 SFP user.info sysinit: open i2c device error.
+Oct  8 07:26:16 SFP user.info sysinit: Error setting string, invalid index?
+Oct  8 07:26:16 SFP user.info sysinit: open i2c device error.
+Oct  8 07:26:17 SFP user.notice omcid: Use OMCI mib file: /etc/mibs/sfp_alu.ini
+Oct  8 07:26:21 SFP kern.info kernel: [   42.340000] device exc entered promiscuous mode
+Oct  8 07:26:24 SFP user.info sysinit: errorcode=0 
+Oct  8 07:26:26 SFP user.info sysinit: Lantiq GPON Evaluation System (SFP), Image Revison 6.4.2
+Oct  8 07:26:26 SFP user.info sysinit: Lantiq GPON Evaluation System (SFP), Image Revison 6.4.2
+Oct  8 07:26:27 SFP user.info sysinit: IFXOS, Version 1.5.19
+Oct  8 07:26:27 SFP user.info sysinit: FALC(tm) ON Base Driver, Version 6.4.2.0 Copyright (c) 2013, Lantiq Deutschland GmbH
+Oct  8 07:26:27 SFP user.info sysinit: FALC(tm) ON Optic Driver, version 6.4.1 (c) Copyright 2013, Lantiq Deutschland GmbH
+Oct  8 07:26:28 SFP user.info sysinit: Debug and Trace Interface, DTI Agent 1.2.1
+Oct  8 07:26:28 SFP user.info sysinit: GPON ONU control, version 6.4.2.0 Copyright (c) 2013, Lantiq Deutschland GmbH
+Oct  8 07:26:28 SFP user.info sysinit: GPON Optic Control, version 6.4.1 (c) Copyright 2013, Lantiq Deutschland GmbH
+Oct  8 07:26:28 SFP user.info sysinit: GPON ONU top, version 1.0.7 Copyright (c) 2013, Lantiq Deutschland GmbH
+Oct  8 07:26:28 SFP user.info sysinit: OMCI Simulate, version 0.0.4 (c) Copyright 2012, Lantiq Deutschland GmbH
+Oct  8 07:26:30 SFP user.info sysinit: OMCI daemon, version 6.4.2 (c) Copyright 2012, Lantiq Deutschland GmbH
+Oct  8 07:26:30 SFP user.info sysinit: GPON Optic top, version 3.0.22 (c) Copyright 2013, Lantiq Deutschland GmbH
+Oct  8 07:26:30 SFP user.info sysinit: GPON Optic Calibration CLI, version 0.0.2 (c) Copyright 2011, Lantiq Deutschland GmbH
+Oct  8 07:26:30 SFP user.info sysinit: GPON Exception Dump Tool, version 0.0.6 Copyright (c) 2013, Lantiq Deutschland GmbH
+Oct  8 07:26:30 SFP user.info sysinit: OMCI usock server, version 0.0.1 (c) Copyright 2011, Lantiq Deutschland GmbH
+Oct  8 07:26:40 SFP authpriv.info dropbear[1088]: Running in background
