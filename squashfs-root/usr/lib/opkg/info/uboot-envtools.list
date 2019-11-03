@@ -1,0 +1,5 @@
+/usr/sbin/fw_printenv
+/etc/uci-defaults/uboot-envtools
+/usr/sbin/fw_setenv
+/lib/uboot-envtools.sh
+/lib/upgrade/keep.d/uboot-envtools

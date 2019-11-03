@@ -1,0 +1,2 @@
+/etc/modules.d/92-spi-gpio
+/lib/modules/3.10.12/spi-gpio.ko

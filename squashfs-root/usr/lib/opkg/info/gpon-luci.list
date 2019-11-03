@@ -1,0 +1,9 @@
+/usr/lib/lua/luci/view/lantiq/gpon-status.htm
+/usr/lib/lua/luci/view/lantiq/gpon-config.htm
+/usr/lib/lua/luci/model/cbi/lantiq/gpon-config-lan.lua
+/usr/lib/lua/luci/view/lantiq/gpon-temperature.htm
+/usr/lib/lua/luci/controller/lantiq/gpon.lua
+/usr/lib/lua/luci/model/cbi/lantiq/gpon-config-omci.lua
+/usr/lib/lua/luci/model/cbi/lantiq/gpon-config-goi.lua
+/usr/lib/lua/luci/model/cbi/lantiq/gpon-config-gtc.lua
+/usr/lib/lua/luci/tools/gpon.lua

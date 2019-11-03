@@ -1,0 +1,13 @@
+Package: ipwatchd
+Version: 1.2-1
+Depends: libc, libnet1
+Provides: 
+Source: package/ipwatchd
+Section: utils
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: lantiq
+Installed-Size: 9760
+Description:  IP conflict detection tool for Linux

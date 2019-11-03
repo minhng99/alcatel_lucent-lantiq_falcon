@@ -1,0 +1,3 @@
+/opt/lantiq/bin/ocal
+/opt/lantiq/bin/ocal_pipe.sh
+/etc/init.d/load_ocal.sh

@@ -1,0 +1,42 @@
+#!/bin/sh
+
+# Copyright (C) 2010 OpenWrt.org
+# Copyright (C) 2011 lantiq.com
+
+# move me to etc/hotplug.d/gpon
+
+if [ "$DEVICENAME" != "optic" ]; then
+	return
+fi
+
+. /etc/functions.sh
+
+optic() {
+	#echo "optic $*"
+	result=`/opt/lantiq/bin/optic $*`
+	#echo "result $result"
+	status=${result%% *}
+	key=$(echo $status | cut -d= -f1)
+	val=$(echo $status | cut -d= -f2)
+	if [ "$key" == "errorcode" -a "$val" != "0" ]; then
+		echo "optic $* failed: $result"
+	fi
+}
+
+optic_timestamp() {
+	echo -n $1 > /etc/optic/goi_age
+}
+
+if [ "$TIMESTAMP" ]; then
+echo timestamp update: -$TIMESTAMP- > /dev/console
+	optic_timestamp $TIMESTAMP
+	optic config_save
+fi
+
+if ([ "$STATE" ] && [ "$OLD_STATE" ]); then
+	#echo state update: -$OLD_STATE-$STATE- > /dev/console
+	#echo 0 > /sys/class/leds/onu:led:0$OLD_STATE/brightness
+	#echo 1 > /sys/class/leds/onu:led:0$STATE/brightness
+fi
+
+#echo optic hotplug event... > /dev/console

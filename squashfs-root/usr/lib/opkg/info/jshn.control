@@ -1,0 +1,13 @@
+Package: jshn
+Version: 2013-10-19-734d28eb1a46358743cf8837c91e5d46695c3b91
+Depends: libc, libjson-c
+Provides: 
+Source: package/libubox
+Section: utils
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: lantiq
+Installed-Size: 5118
+Description:  Library for parsing and generating JSON from shell scripts

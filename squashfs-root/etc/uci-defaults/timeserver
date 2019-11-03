@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# Copyright (C) 2011 OpenWrt.org
+# Copyright (C) 2011 lantiq.com
+#
+
+timeserver=10.1.1.1
+
+uci batch <<EOF
+add timeserver timeserver
+set timeserver.@timeserver[-1].hostname=${timeserver}
+add ntpclient ntpserver
+set ntpclient.@ntpserver[-1].hostname=${timeserver}
+EOF

@@ -1,0 +1,13 @@
+Package: gpon-gphy-firmware
+Version: R8432-1
+Depends: libc
+Provides: 
+Source: lantiq/ltq_gpon_onu/gpon-gphy-firmware
+Section: firmware
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: Lantiq Deutschland GmbH
+Architecture: lantiq
+Installed-Size: 23250
+Description:  FALC-ON gphy firmware (phy11g)

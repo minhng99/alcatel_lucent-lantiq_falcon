@@ -1,0 +1,11 @@
+#!/bin/sh
+
+export PATH=$PATH:/opt/lantiq/bin
+
+alias la='ls -la'
+alias ..='cd ../..'
+alias omci='omci_pipe.sh'
+alias dsl='dsl_pipe'
+
+# if possible, adapt to size of terminal
+[ -x /usr/bin/resize ] && resize

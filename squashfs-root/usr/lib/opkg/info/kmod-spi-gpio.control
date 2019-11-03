@@ -1,0 +1,13 @@
+Package: kmod-spi-gpio
+Version: 3.10.12-1
+Depends: kernel (=3.10.12-1-06684b84413315e7db7ee9e336433c48), kmod-spi-bitbang
+Provides: 
+Source: package/kernel
+Section: kernel
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: lantiq
+Installed-Size: 3434
+Description:  This package contains the GPIO-based bitbanging SPI Master

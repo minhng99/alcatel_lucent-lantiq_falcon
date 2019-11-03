@@ -1,0 +1,13 @@
+Package: gpon-sfp-i2c-drv-linux
+Version: 1.5.0-1
+Depends: libc, gpon-sfp-i2c-drv, kmod-ifxos, kmod-gpon-sfp-i2c-drv
+Provides: 
+Source: lantiq/ltq_gpon_onu/gpon-sfp-i2c-drv
+Section: driver
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: Lantiq
+Architecture: lantiq
+Installed-Size: 266
+Description:  The sfp-i2c driver for the GPON device

@@ -1,0 +1,6 @@
+#!/bin/sh
+uci batch <<-EOF
+	set luci.themes.Lantiq=/luci-static/lantiq
+	commit luci
+EOF
+	

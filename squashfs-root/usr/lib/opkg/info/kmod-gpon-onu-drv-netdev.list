@@ -1,0 +1,2 @@
+/etc/modules.d/81-gpon-onu-drv-netdev
+/lib/modules/3.10.12/mod_onu_netdev.ko

@@ -1,0 +1,76 @@
+#!/bin/sh
+
+# Copyright (C) 2010 OpenWrt.org
+# Copyright (C) 2010 lantiq.com
+
+. /etc/functions.sh
+. /lib/falcon.sh
+
+led="/sys/class/leds"
+
+led0=""
+led1=""
+
+get_pon_led() {
+	case $(falcon_board_name) in
+	easy98000*)
+		led0="easy98000:green:0"
+		led1="easy98000:green:1"
+		;;
+	easy98010|easy98020)
+		led0="easy98020:green:0"
+		;;
+	95C3AM1)
+		led0="optical"
+		;;
+	esac;
+}
+
+led_set_attr() {
+	[ -f "/sys/class/leds/$1/$2" ] && echo "$3" > "/sys/class/leds/$1/$2"
+}
+
+led_set_off() {
+	led_set_attr $led0 "trigger" "none"
+	led_set_attr $led0 "brightness" "0"
+	led_set_attr $led1 "trigger" "none"
+	led_set_attr $led1 "brightness" "0"
+}
+
+led_set_green() {
+	led_set_attr $led0 "trigger" "none"
+	led_set_attr $led0 "brightness" "1"
+}
+
+led_set_red() {
+	led_set_attr $led1 "trigger" "none"
+	led_set_attr $led1 "brightness" "1"
+}
+
+led_set_green_blink() {
+	led_set_attr $led0 "brightness" "1"
+	led_set_attr $led0 "trigger" "timer"
+	led_set_attr $led0 "delay_on" "100"
+	led_set_attr $led0 "delay_off" "200"
+}
+
+led_config() {
+
+	if [ "$STATE" = "5" ]; then
+		led_set_off
+		led_set_green
+	elif [ "$STATE" = "0" -o "$STATE" = "1" ]; then
+		led_set_off
+		led_set_red
+	else
+		led_set_off
+		led_set_green_blink
+	fi
+}
+
+if [ "$DEVICENAME" = "optic" ]; then
+	return
+fi
+
+get_pon_led
+led_config

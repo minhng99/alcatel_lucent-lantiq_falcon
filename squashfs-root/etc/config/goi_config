@@ -1,0 +1,13 @@
+config goi global
+config goi ranges
+config goi temperature_tables
+config goi dcdc_apd
+config goi transmitter
+config goi transmit_power
+config goi monitor
+config goi measurement
+config goi omu
+config goi bosa
+config goi fcsi
+config goi dcdc_core
+config goi dcdc_ddr

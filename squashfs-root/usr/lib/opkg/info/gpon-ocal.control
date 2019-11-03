@@ -1,0 +1,13 @@
+Package: gpon-ocal
+Version: 6.4.1-2
+Depends: libc, libpthread, librt, libuci, lib-cli
+Provides: 
+Source: lantiq/ltq_gpon_onu/gpon-ocal
+Section: application
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: Lantiq
+Architecture: lantiq
+Installed-Size: 44907
+Description:  The Optic CALibration for GPON Optical Network Unit device

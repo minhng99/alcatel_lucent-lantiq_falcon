@@ -1,0 +1,4 @@
+/opt/lantiq/bin/sfp_i2c
+/etc/init.d/sfp_eeprom.sh
+/etc/config/sfp_eeprom
+/etc/uci-defaults/uci_disable_dying_gasp.sh

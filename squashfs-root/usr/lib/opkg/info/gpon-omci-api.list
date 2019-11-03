@@ -1,0 +1,2 @@
+/opt/lantiq/bin/omci_usock_server
+/etc/init.d/usock.sh

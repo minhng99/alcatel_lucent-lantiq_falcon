@@ -1,0 +1,2 @@
+/etc/modules.d/10-ifxos
+/lib/modules/3.10.12/drv_ifxos.ko

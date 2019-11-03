@@ -1,0 +1,13 @@
+Package: kmod-gpon-onu-drv-led-trigger
+Version: 3.10.12+6.4.2-3
+Depends: kernel (=3.10.12-1-06684b84413315e7db7ee9e336433c48), kmod-gpon-onu-drv
+Provides: 
+Source: lantiq/ltq_gpon_onu/gpon-onu-drv
+Section: kernel
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: Lantiq
+Architecture: lantiq
+Installed-Size: 2748
+Description:  The LED trigger driver for ONU device

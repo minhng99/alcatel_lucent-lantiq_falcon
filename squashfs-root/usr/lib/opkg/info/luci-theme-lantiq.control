@@ -1,0 +1,13 @@
+Package: luci-theme-lantiq
+Version: 0.10-1
+Depends: libc, luci-lib-web
+Provides: 
+Source: lantiq/ltq_luci/luci-lantiq-themes
+Section: luci
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: lantiq.com
+Architecture: lantiq
+Installed-Size: 8486
+Description:  Lantiq Theme

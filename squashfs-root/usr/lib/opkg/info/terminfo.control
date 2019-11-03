@@ -1,0 +1,13 @@
+Package: terminfo
+Version: 5.7-5
+Depends: libc
+Provides: 
+Source: package/ncurses
+Section: libs
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: lantiq
+Installed-Size: 5578
+Description:  Terminal Info Database (ncurses)

@@ -1,0 +1,13 @@
+Package: kmod-button-hotplug
+Version: 3.10.12-3
+Depends: kernel (=3.10.12-1-06684b84413315e7db7ee9e336433c48)
+Provides: 
+Source: package/button-hotplug
+Section: kernel
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: lantiq
+Installed-Size: 2781
+Description:  Kernel module to generate button hotplug events

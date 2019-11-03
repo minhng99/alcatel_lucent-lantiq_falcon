@@ -1,0 +1,4 @@
+# Do not change the Type identifier!;;;
+Type=LASER_REF;;;
+# Temp [K];Ith [mA];SE [uW/mA];age [s]
+313;7.0;110.0;0

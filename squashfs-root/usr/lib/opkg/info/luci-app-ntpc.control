@@ -1,0 +1,13 @@
+Package: luci-app-ntpc
+Version: 0.11+svn-1
+Depends: libc, ntpclient
+Provides: 
+Source: lantiq/luci/contrib/package/luci
+Section: luci
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: LuCI Development Team <luci@lists.subsignal.org>
+Architecture: lantiq
+Installed-Size: 7430
+Description:  NTP time synchronisation configuration module

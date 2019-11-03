@@ -1,0 +1,6 @@
+DISTRIB_ID="OpenWrt"
+DISTRIB_RELEASE="Attitude Adjustment"
+DISTRIB_REVISION="12.09_ltq"
+DISTRIB_CODENAME="attitude_adjustment"
+DISTRIB_TARGET="lantiq/falcon"
+DISTRIB_DESCRIPTION="OpenWrt Attitude Adjustment 12.09.1"

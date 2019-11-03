@@ -1,0 +1,6 @@
+config 'sfp_eeprom' 'default'
+	option 'eeprom' '1'
+	option 'vendor_name' 'Lantiq'
+	option 'vendor_partno' 'Part Number'
+	option 'vendor_rev' '0000'
+	option 'serial_no' 'no serial number'

@@ -1,0 +1,13 @@
+Package: uboot-envtools
+Version: 2012.04.01-1
+Depends: libc
+Provides: 
+Source: package/uboot-envtools
+Section: utils
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: lantiq
+Installed-Size: 9200
+Description:  This package includes tools to read and modify U-Boot bootloader environment.

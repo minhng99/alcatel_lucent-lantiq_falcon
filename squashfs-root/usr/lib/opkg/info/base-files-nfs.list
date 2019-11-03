@@ -1,0 +1,2 @@
+/lib/preinit/01_init_nfs_root
+/etc/uci-defaults/000-nfs-network-fix

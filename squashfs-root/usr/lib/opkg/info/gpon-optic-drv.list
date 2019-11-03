@@ -1,0 +1,4 @@
+/opt/lantiq/bin/optic
+/etc/init.d/optic.sh
+/opt/lantiq/bin/otop
+/etc/hotplug.d/gpon/10-optic

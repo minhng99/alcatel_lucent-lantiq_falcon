@@ -1,0 +1,13 @@
+Package: lib-cli
+Version: 2.5.1-1
+Depends: libc, ifxos, libpthread
+Provides: 
+Source: lantiq/ltq_common/lib-cli
+Section: driver
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: Lantiq Deutschland GmbH
+Architecture: lantiq
+Installed-Size: 12531
+Description:  The common command line interface (CLI) library.

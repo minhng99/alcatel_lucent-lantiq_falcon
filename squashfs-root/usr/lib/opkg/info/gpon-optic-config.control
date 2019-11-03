@@ -1,0 +1,13 @@
+Package: gpon-optic-config
+Version: 3.0.9-3
+Depends: libc
+Provides: 
+Source: lantiq/ltq_gpon_onu/gpon-optic-config
+Section: base
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: Lantiq
+Architecture: all
+Installed-Size: 4775
+Description:  The configurations files for the GPON device (optic part)

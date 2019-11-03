@@ -1,0 +1,8 @@
+/usr/lib/lua/luci/view/themes/openwrt.org/footer.htm
+/www/luci-static/openwrt.org/cascade.css
+/www/luci-static/openwrt.org/ie6.css
+/www/luci-static/openwrt.org/ie7.css
+/www/luci-static/openwrt.org/ie8.css
+/www/luci-static/openwrt.org/tabbg.png
+/etc/uci-defaults/luci-theme-openwrt
+/usr/lib/lua/luci/view/themes/openwrt.org/header.htm

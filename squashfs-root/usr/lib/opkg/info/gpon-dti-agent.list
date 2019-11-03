@@ -1,0 +1,2 @@
+/etc/init.d/load_dti_agent.sh
+/opt/lantiq/bin/gpon_dti_agent

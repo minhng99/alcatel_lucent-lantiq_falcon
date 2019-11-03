@@ -1,0 +1,13 @@
+Package: gpon-dti-agent
+Version: 2.2.0-1
+Depends: libc, libpthread, librt, libuci, lib-dti
+Provides: 
+Source: lantiq/ltq_gpon_onu/gpon-dti-agent
+Section: application
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: Lantiq
+Architecture: lantiq
+Installed-Size: 45356
+Description:  The Debug & Trace Interface agent for GPON Optical Network Unit device.

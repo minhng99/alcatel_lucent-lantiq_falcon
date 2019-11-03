@@ -1,0 +1,4 @@
+/usr/share/ipwatchd/ipwatchd.script
+/etc/init.d/ipwatchd
+/usr/sbin/ipwatchd
+/etc/ipwatchd.conf

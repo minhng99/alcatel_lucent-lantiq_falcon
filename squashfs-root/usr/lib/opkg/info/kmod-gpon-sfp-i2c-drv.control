@@ -1,0 +1,13 @@
+Package: kmod-gpon-sfp-i2c-drv
+Version: 3.10.12+1.5.0-1
+Depends: kernel (=3.10.12-1-06684b84413315e7db7ee9e336433c48), kmod-ifxos
+Provides: 
+Source: lantiq/ltq_gpon_onu/gpon-sfp-i2c-drv
+Section: kernel
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: Lantiq
+Architecture: lantiq
+Installed-Size: 11192
+Description:  The SFP I2C driver for the GPON device

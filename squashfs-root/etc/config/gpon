@@ -1,0 +1,34 @@
+config 'gpon' 'ploam'
+	option 'nSerial' ''
+	option 'nPassword' '0000000000'
+	option 'nT01' '11000'
+	option 'nT02' '100'
+	option 'nEmergencyStopState' '0'
+	option nRogueMsgIdUpstreamReset '255'
+	option nRogueMsgRepeatUpstreamReset '3'
+	option nRogueMsgIdDeviceReset '255'
+	option nRogueMsgRepeatDeviceReset '3'
+	option nRogueEnable '0'
+
+config 'gpon' 'gtc'
+	option 'bDlosEnable' '0'
+	option 'bDlosInversion' '0'
+	option 'nDlosWindowSize' '0'
+	option 'nDlosTriggerThreshold' '0'
+	option 'ePower' '0'
+	option 'nLaserGap' '0'
+	option 'nLaserOffset' '0'
+	option 'nLaserEnEndExt' '0'
+	option 'nLaserEnStartExt' '0'
+	option 'nDyingGaspEnable' '0'
+	option 'nDyingGaspHyst' '0'	# 80mV hysteresis
+	option 'nDyingGaspMsg' '0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00'
+
+config 'gpon' 'ethernet'
+	option 'bUNI_PortEnable0' '1'	# should be done board specific
+	option 'bUNI_PortEnable1' '1'	# should be done board specific
+	option 'bUNI_PortEnable2' '1'	# should be done board specific
+	option 'bUNI_PortEnable3' '1'	# should be done board specific
+
+config 'gpon' 'gpe'
+	option 'nPeNumber' '6'

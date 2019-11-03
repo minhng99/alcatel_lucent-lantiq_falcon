@@ -1,0 +1,9 @@
+/opt/lantiq/bin/gexdump
+/opt/lantiq/bin/onu
+/etc/init.d/led.sh
+/opt/lantiq/bin/debug_fw.sh
+/etc/init.d/onu.sh
+/etc/hotplug.d/gpon/10-net
+/etc/init.d/lan.sh
+/opt/lantiq/bin/gtop
+/opt/lantiq/bin/gci_xml_table_dump.sh

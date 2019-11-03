@@ -1,0 +1,13 @@
+Package: gpon-omci-onu
+Version: 6.4.2-2
+Depends: libc, libpthread, librt, lib-cli, libuci, libubus, libubox, libblobmsg-json
+Provides: 
+Source: lantiq/ltq_gpon_onu/gpon-omci-onu
+Section: driver
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: Lantiq
+Architecture: lantiq
+Installed-Size: 225984
+Description:  The OMCI stack for GPON Optical Network Unit device

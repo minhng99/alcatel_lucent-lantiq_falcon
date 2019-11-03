@@ -1,0 +1,47 @@
+#!/bin/sh 
+# fixup network config for nfs boot
+
+. /etc/functions.sh
+
+grep -q "nfsroot" /proc/cmdline && {
+	local NETDEV option optarg
+
+	for x in cat /proc/cmdline; do
+		optarg="";
+		case $x in
+		*=*)	option=`expr "x$x" : 'x\([^=]*\)='`
+			optarg=`expr "x$x" : 'x[^=]*=\(.*\)'`
+			;;
+		*)	option=$x
+			;;
+		esac
+
+		case $option in
+		ip)
+			NETDEV=`echo $optarg | cut -f6 -d':'`
+			;;
+		esac
+	done
+
+	[ "$NETDEV" = "" ] && {
+		#echo "use default eth0"
+		NETDEV=eth0
+	}
+
+	include /lib/network
+	scan_interfaces
+
+	local ifc
+	for ifc in $interfaces; do
+		local ifname
+		#echo "ifc $ifc"
+		config_get ifname "$ifc" ifname
+		#echo "ifname $ifname"
+
+		if [ "$NETDEV" == "$ifname" ]; then
+			echo "remove network config *$ifc* for NFS boot"
+			uci_remove network $ifc
+		fi
+	done
+	uci_commit network
+}

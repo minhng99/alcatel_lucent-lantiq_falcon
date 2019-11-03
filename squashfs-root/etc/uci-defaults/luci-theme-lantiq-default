@@ -1,0 +1,5 @@
+#!/bin/sh
+uci batch <<-EOF
+	set luci.main.mediaurlbase=/luci-static/lantiq
+	commit luci
+EOF

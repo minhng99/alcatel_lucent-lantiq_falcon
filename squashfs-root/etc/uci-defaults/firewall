@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# Copyright (C) 2013 OpenWrt.org
+#
+
+[ -e /etc/config/firewall ] || exit 0
+
+uci set firewall.@zone[0].network='lan0 lan1 lan2 lan3'
+uci commit firewall
+uci show firewall
+
+exit 0

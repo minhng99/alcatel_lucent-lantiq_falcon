@@ -1,0 +1,13 @@
+Package: gpon-sfp-eeprom-linux
+Version: 1.0.0-1
+Depends: libc, gpon-sfp-eeprom, libpthread, ifxos, PACKAGE_gpon-sfp-i2c-drv-linux
+Provides: 
+Source: lantiq/ltq_gpon_onu/gpon-sfp-eeprom
+Section: driver
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: Lantiq
+Architecture: lantiq
+Installed-Size: 16569
+Description:  The sfp control application for the GPON device

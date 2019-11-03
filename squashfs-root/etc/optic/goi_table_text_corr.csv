@@ -1,0 +1,4 @@
+# do not change Type;
+Type=TEMP_EXT_CORR;
+# nominal external temperature; corrected external temperature
+290;290

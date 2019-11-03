@@ -1,0 +1,4 @@
+# do not change Type;
+Type=MPD_RESP_CORR;
+# Temp; mpd response correction factor
+290;1.00

@@ -1,0 +1,14 @@
+Package: io
+Version: 1
+Depends: libc
+Provides: 
+Source: lantiq/packages/utils/io
+Section: utils
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: lantiq
+Installed-Size: 4067
+Description:  This tool can be used to access physical memory addresses from userspace. 
+ It can be useful to access hardware for which no device driver exists!

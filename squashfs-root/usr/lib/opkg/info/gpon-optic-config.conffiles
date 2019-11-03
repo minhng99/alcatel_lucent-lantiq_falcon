@@ -1,0 +1,10 @@
+/etc/config/goi_config
+/etc/optic/goi_age
+/etc/optic/goi_table_laser_ref.csv
+/etc/optic/goi_table_laser_ref_base.csv
+/etc/optic/goi_table_mpd_resp_corr.csv
+/etc/optic/goi_table_pth_corr.csv
+/etc/optic/goi_table_rf1550_corr.csv
+/etc/optic/goi_table_rssi1490_corr.csv
+/etc/optic/goi_table_rssi1550_corr.csv
+/etc/optic/goi_table_text_corr.csv

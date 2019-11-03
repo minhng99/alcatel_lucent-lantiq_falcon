@@ -1,0 +1,13 @@
+Package: gpon-luci
+Version: 0.0.1-1
+Depends: libc, luci-lib-core
+Provides: 
+Source: lantiq/ltq_gpon_onu/gpon-luci
+Section: library
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: Lantiq
+Architecture: lantiq
+Installed-Size: 4600
+Description:  This package adds the GPON extension to the LuCI Web Interface

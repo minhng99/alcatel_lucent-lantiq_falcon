@@ -1,0 +1,13 @@
+Package: gpon-omci-api
+Version: 6.4.1-2
+Depends: libc, gpon-onu-drv, gpon-optic-drv
+Provides: 
+Source: lantiq/ltq_gpon_onu/gpon-omci-api
+Section: driver
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: Lantiq
+Architecture: lantiq
+Installed-Size: 2460
+Description:  The OMCI API for GPON Optical Network Unit device

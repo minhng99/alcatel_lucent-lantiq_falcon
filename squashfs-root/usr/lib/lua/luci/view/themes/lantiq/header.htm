@@ -1,0 +1,186 @@
+<%#
+LuCI - Lua Configuration Interface
+Copyright 2008 Steven Barth <steven@midlink.org>
+Copyright 2008-2010 Jo-Philipp Wich <xm@subsignal.org>
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+$Id: header.htm 7038 2011-05-09 23:04:26Z jow $
+
+-%>
+<%
+require("luci.sys")
+local load1, load5, load15 = luci.sys.loadavg()
+local request  = require("luci.dispatcher").context.path
+local category = request[1]
+local request2 = require("luci.dispatcher").context.request
+local leaf     = request2[#request2]
+local tree     = luci.dispatcher.node()
+local cattree  = category and luci.dispatcher.node(category)
+local node     = luci.dispatcher.context.dispatched
+local hostname = luci.sys.hostname()
+
+local c = tree
+for i,r in ipairs(request) do
+	if c.nodes and c.nodes[r] then
+		c = c.nodes[r]
+		c._menu_selected = true
+	end
+end
+
+require("luci.i18n").loadc("base")
+require("luci.http").prepare_content("application/xhtml+xml")
+
+
+	local function nodeurl(prefix, name, query)
+		local url = controller .. prefix .. name .. "/"
+		if query then
+			url = url .. luci.http.build_querystring(query)
+		end
+		return pcdata(url)
+	end
+
+	local function subtree(prefix, node, level)
+	if not node.nodes or node.hidden then
+		return false
+	end
+
+		if not level then
+			level = 1
+		end
+
+	local index = {}
+	local count = 0
+	for k, n in pairs(node.nodes) do
+		if n.title and n.target then
+			table.insert(index, {name=k, order=n.order or 100})
+			count = count + 1
+		end
+	end
+
+	table.sort(index, function(a, b) return a.order < b.order end)
+
+	if count > 0 then
+%>
+	<div class="tabmenu<%=level%>">
+	<ul class="tabmenu l<%=level%>">
+		<%
+			local selected_node
+			local selected_name
+
+		for j, v in pairs(index) do
+			if #v.name > 0 then
+				local nnode = node.nodes[v.name]
+
+					if nnode._menu_selected then
+						selected_node = nnode
+						selected_name = v.name
+					end
+%>
+			<li class="tabmenu-item-<%=v.name%><% if nnode._menu_selected or (node.leaf and v.name == leaf) then %> active<% end %>">
+				<a href="<%=nodeurl(prefix, v.name, nnode.query)%>"><%=striptags(nnode.title)%></a>
+			</li>
+		<%
+			end
+		end
+%>
+</ul>
+	<br style="clear:both" />
+<%
+			if selected_node then
+				subtree(prefix .. selected_name .. "/", selected_node, level + 1)
+			end
+%>
+	</div>
+<%
+	end
+end
+
+
+-%>
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<%=luci.i18n.context.lang%>" lang="<%=luci.i18n.context.lang%>">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<link rel="stylesheet" type="text/css" media="screen" href="<%=media%>/cascade.css" />
+<!--[if IE 6]><link rel="stylesheet" type="text/css" media="screen" href="<%=media%>/ie6.css" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" type="text/css" media="screen" href="<%=media%>/ie7.css" /><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" type="text/css" media="screen" href="<%=media%>/ie8.css" /><![endif]-->
+<% if node and node.css then %><link rel="stylesheet" type="text/css" media="screen" href="<%=resource%>/<%=node.css%>" />
+<% end -%>
+<script type="text/javascript" src="<%=resource%>/xhr.js"></script>
+<title><%=striptags( hostname .. ( (node and node.title) and ' - ' .. node.title or '')) %> - LuCI</title>
+</head>
+<body class="lang_<%=luci.i18n.context.lang%>">
+
+<p class="skiplink">
+<span id="skiplink1"><a href="#navigation"><%:Skip to navigation%></a></span>
+<span id="skiplink2"><a href="#content"><%:Skip to content%></a></span>
+</p>
+
+<div id="menubar">
+<h2 class="navigation"><a id="navigation" name="navigation"><%:Navigation%></a></h2>
+
+<div class="logo"/>
+<div class="hostinfo">
+	<%=hostname%> | <%=luci.version.distversion%> |
+	<%:Load%>: <%="%.2f" % load1%> <%="%.2f" % load5%> <%="%.2f" % load15%>
+</div>
+
+<ul id="modemenu"><%
+for k,node in pairs(tree.nodes) do
+	if node.title and not node.hidden then %>
+<li><a<% if request[1] == k then %> class="active"<%end%> href="<%=controller%>/<%=k%>/"><%=striptags(node.title)%></a></li><%
+	end
+end
+%>
+</ul>
+
+<%
+if tree.nodes[category] and tree.nodes[category].ucidata then
+	local ucic = 0
+	for i, j in pairs(require("luci.model.uci").cursor():changes()) do
+		for k, l in pairs(j) do
+			for m, n in pairs(l) do
+				ucic = ucic + 1;
+			end
+		end
+	end
+-%>
+<div id="savemenu">
+	<% if ucic > 0 then %>
+		<a class="warning" href="<%=controller%>/<%=category%>/uci/changes/?redir=<%=luci.http.urlencode(luci.http.formvalue("redir") or REQUEST_URI)%>"><%:Unsaved Changes%>: <%=ucic%></a>
+	<%- else -%>
+		<a href="#"><%:Changes%>: 0</a>
+	<% end -%>
+</div><% end %>
+
+<div class="clear"></div>
+</div>
+
+<div id="maincontainer">
+	<div id="tabmenu">
+		<% if category then subtree("/" .. category .. "/", cattree) end %>
+	</div>
+
+<div id="maincontent">
+		<noscript>
+			<div class="errorbox">
+				<strong><%:Java Script required!%></strong><br />
+				<%:You must enable Java Script in your browser or LuCI will not work properly.%>
+			</div>
+		</noscript>
+
+		<%- if luci.sys.user.getuser("root") and not luci.sys.user.getpasswd("root") then -%>
+		<div class="errorbox">
+			<strong><%:No password set!%></strong><br />
+			<%:There is no password set on this router. Please configure a root password to protect the web interface and enable SSH.%>
+		</div>
+		<%- end -%>

@@ -1,0 +1,13 @@
+Package: gpon-pe-firmware
+Version: 9.47.0.0-1
+Depends: libc
+Provides: 
+Source: lantiq/ltq_gpon_onu/gpon-pe-firmware
+Section: firmware
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: Lantiq Deutschland GmbH
+Architecture: lantiq
+Installed-Size: 9482
+Description:  FALC-ON packet engine firmware

@@ -1,0 +1,4 @@
+#!/usr/bin/awk -f
+BEGIN { RS=" "; FS="="; }
+$1 != "\n" { printf "%s=0x%X ",$1,$2 }
+END { print "" }

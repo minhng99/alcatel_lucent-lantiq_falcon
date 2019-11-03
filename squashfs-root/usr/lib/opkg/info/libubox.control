@@ -1,0 +1,13 @@
+Package: libubox
+Version: 2013-10-19-734d28eb1a46358743cf8837c91e5d46695c3b91
+Depends: libc
+Provides: 
+Source: package/libubox
+Section: libs
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: lantiq
+Installed-Size: 12985
+Description:  Basic utility library

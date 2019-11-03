@@ -1,0 +1,258 @@
+<%#
+LuCI - Lua Configuration Interface
+Copyright 2011 Ralph Hempel <ralph.hempel@lantiq.com>
+based on work of Copyright 2010 Jo-Philipp Wich <xm@subsignal.org>
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+
+-%>
+
+<%+header%>
+
+<script type="text/javascript" src="<%=resource%>/xhr.js"></script>
+<script type="text/javascript" src="<%=resource%>/cbi.js"></script>
+<script type="text/javascript">//<![CDATA[
+	var bwxhr = new XHR();
+
+	var G;
+	var TIME = 0;
+	var L_DIE   = 1;
+	var L_LASER = 2;
+
+	var width  = 760;
+	var height = 300;
+	var step   = 5;
+
+	var data_wanted = Math.floor(width / step);
+	var data_fill   = 0;
+	var data_stamp  = 0;
+
+	var data_die  = [ ];
+	var data_laser  = [ ];
+
+	var line_die;
+	var line_laser;
+
+	var label_25;
+	var label_50;
+	var label_75;
+
+	var label_die_cur;
+	var label_die_avg;
+	var label_die_peak;
+
+	var label_laser_cur;
+	var label_laser_avg;
+	var label_laser_peak;
+
+	var label_scale;
+
+
+	function update_graph()
+	{
+		bwxhr.get('<%=build_url("admin/gpon/temperature")%>', null,
+			function(x, data)
+			{
+				var data_max   = 400;
+				var data_scale = 0;
+
+				var data_die_avg = 0;
+				var data_laser_avg = 0;
+
+				var data_die_peak = 0;
+				var data_laser_peak = 0;
+
+				for (var i = data_stamp ? 0 : 1; i < data.length; i++)
+				{
+					/* skip overlapping entries */
+					if (data[i][TIME] <= data_stamp)
+						continue;
+
+					data_die.push(data[i][L_DIE]);
+					data_laser.push(data[i][L_LASER]);
+				}
+
+				/* cut off outdated entries */
+				data_die = data_die.slice(data_die.length - data_wanted, data_die.length);
+				data_laser = data_laser.slice(data_laser.length - data_wanted, data_laser.length);
+
+				/* find peak */
+				for (var i = 0; i < data_die.length; i++)
+				{
+
+					data_die_peak = Math.max(data_die_peak, data_die[i]);
+					data_laser_peak = Math.max(data_laser_peak, data_laser[i]);
+
+					if (i > 0)
+					{
+						data_die_avg = (data_die_avg + data_die[i]) / 2;
+						data_laser_avg = (data_laser_avg + data_laser[i]) / 2;
+					}
+					else
+					{
+						data_die_avg = data_die[i];
+						data_laser_avg = data_laser[i];
+					}
+				}
+
+				/* remember current timestamp, calculate horizontal scale */
+				data_stamp = data[data.length-1][TIME];
+				data_scale = height / (data_max * 1.0);
+
+
+				/* plot data */
+				var pt_die = '0,' + height;
+				var pt_laser = '0,' + height;
+
+				var y_die = 0;
+				var y_laser = 0;
+
+				for (var i = 0; i < data_die.length; i++)
+				{
+					var x = i * step;
+
+					y_die = height - Math.floor(data_die[i] * data_scale);
+					y_laser = height - Math.floor(data_laser[i] * data_scale);
+
+					pt_die += ' ' + x + ',' + y_die;
+					pt_laser += ' ' + x + ',' + y_laser;
+				}
+
+				pt_die += ' ' + width + ',' + y_die + ' ' + width + ',' + height;
+				pt_laser += ' ' + width + ',' + y_laser + ' ' + width + ',' + height;
+
+
+				line_die.setAttribute('points', pt_die);
+				line_laser.setAttribute('points', pt_laser);
+
+				label_25.firstChild.data = (0.25 * data_max).toFixed(0);
+				label_50.firstChild.data = (0.50 * data_max).toFixed(0);
+				label_75.firstChild.data = (0.75 * data_max).toFixed(0);
+
+				label_die_cur.innerHTML = (data_die[data_die.length-1]).toFixed(0);
+				label_laser_cur.innerHTML = (data_laser[data_laser.length-1]).toFixed(0);
+
+				label_die_avg.innerHTML = (data_die_avg).toFixed(0);
+				label_laser_avg.innerHTML = (data_laser_avg).toFixed(0);
+
+				label_die_peak.innerHTML = (data_die_peak).toFixed(0);
+				label_laser_peak.innerHTML = (data_laser_peak).toFixed(0);
+
+				/* reset timer */
+				window.setTimeout(update_graph, 1000);
+			}
+		)
+	}
+
+	/* wait for SVG */
+	window.setTimeout(
+		function() {
+			var svg = document.getElementById('bwsvg');
+
+			try {
+				G = svg.getSVGDocument
+					? svg.getSVGDocument() : svg.contentDocument;
+			}
+			catch(e) {
+				G = document.embeds['bwsvg'].getSVGDocument();
+			}
+
+			if (!G)
+			{
+				window.setTimeout(arguments.callee, 1000);
+			}
+			else
+			{
+				/* find sizes */
+				width       = svg.offsetWidth  - 2;
+				height      = svg.offsetHeight - 2;
+				data_wanted = Math.ceil(width / step);
+
+				/* prefill datasets */
+				for (var i = 0; i < data_wanted; i++)
+				{
+					data_die[i] = 0;
+					data_laser[i] = 0;
+				}
+
+				/* find svg elements */
+				line_die = G.getElementById('load01');
+				line_laser = G.getElementById('load05');
+
+				label_25 = G.getElementById('label_25');
+				label_50 = G.getElementById('label_50');
+				label_75 = G.getElementById('label_75');
+
+				label_die_cur  = document.getElementById('lb_die_cur');
+				label_die_avg  = document.getElementById('lb_die_avg');
+				label_die_peak = document.getElementById('lb_die_peak');
+
+				label_laser_cur  = document.getElementById('lb_laser_cur');
+				label_laser_avg  = document.getElementById('lb_laser_avg');
+				label_laser_peak = document.getElementById('lb_laser_peak');
+
+				label_scale   = document.getElementById('scale');
+
+
+				/* plot horizontal time interval lines */
+				for (var i = step * 60; i < width; i += step * 60)
+				{
+					var line = G.createElementNS('http://www.w3.org/2000/svg', 'line');
+						line.setAttribute('x1', i);
+						line.setAttribute('y1', 0);
+						line.setAttribute('x2', i);
+						line.setAttribute('y2', '100%');
+						line.setAttribute('style', 'stroke:black;stroke-width:0.1');
+
+					var text = G.createElementNS('http://www.w3.org/2000/svg', 'text');
+						text.setAttribute('x', i + 5);
+						text.setAttribute('y', 15);
+						text.setAttribute('style', 'fill:#999999; font-size:9pt');
+						text.appendChild(G.createTextNode(Math.round(i / step / 60) + 'm'));
+
+					label_25.parentNode.appendChild(line);
+					label_25.parentNode.appendChild(text);
+				}
+
+				label_scale.innerHTML = String.format('<%:(%d minute window, %d second interval)%>', data_wanted / 60, 1);
+
+				/* render datasets, start update interval */
+				update_graph();
+			}
+		}, 1000
+	);
+//]]></script>
+
+<embed id="bwsvg" style="width:100%; height:300px; border:1px solid #000000; background-color:#FFFFFF" src="<%=resource%>/load.svg" />
+<div style="text-align:right"><small id="scale">-</small></div>
+<br />
+
+<table style="width:100%; table-layout:fixed" cellspacing="5">
+	<tr>
+		<td style="text-align:right; vertical-align:top"><strong style="border-bottom:2px solid #ff0000"><%:Die Temp [K]:%></strong></td>
+		<td id="lb_die_cur">0</td>
+
+		<td style="text-align:right; vertical-align:top"><strong><%:Average:%></strong></td>
+		<td id="lb_die_avg">0</td>
+
+		<td style="text-align:right; vertical-align:top"><strong><%:Peak:%></strong></td>
+		<td id="lb_die_peak">0</td>
+	</tr>
+	<tr>
+		<td style="text-align:right; vertical-align:top"><strong style="border-bottom:2px solid #ff6600"><%:Laser Temp [K]:%></strong></td>
+		<td id="lb_laser_cur">0</td>
+
+		<td style="text-align:right; vertical-align:top"><strong><%:Average:%></strong></td>
+		<td id="lb_laser_avg">0</td>
+
+		<td style="text-align:right; vertical-align:top"><strong><%:Peak:%></strong></td>
+		<td id="lb_laser_peak">0</td>
+	</tr>
+</table>
+
+<%+footer%>

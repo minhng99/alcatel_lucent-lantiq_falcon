@@ -1,0 +1,1 @@
+../init.d/sfp_eeprom.sh

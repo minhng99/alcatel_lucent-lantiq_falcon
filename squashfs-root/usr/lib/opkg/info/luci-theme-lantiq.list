@@ -1,0 +1,10 @@
+/etc/uci-defaults/luci-theme-lantiq-default
+/www/luci-static/lantiq/cascade.css
+/www/luci-static/lantiq/tabbg.png
+/usr/lib/lua/luci/view/themes/lantiq/header.htm
+/usr/lib/lua/luci/view/themes/lantiq/footer.htm
+/www/luci-static/lantiq/logo.gif
+/etc/uci-defaults/luci-theme-lantiq
+/www/luci-static/lantiq/ie6.css
+/www/luci-static/lantiq/ie7.css
+/www/luci-static/lantiq/ie8.css

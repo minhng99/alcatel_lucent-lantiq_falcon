@@ -1,0 +1,2 @@
+/etc/modules.d/60-gpon-sfp-i2c-drv
+/lib/modules/3.10.12/mod_sfp_i2c.ko

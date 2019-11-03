@@ -1,0 +1,13 @@
+Package: ntpclient
+Version: 2007_365-4
+Depends: libc, librt
+Provides: 
+Source: lantiq/packages/net/ntpclient
+Section: net
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: lantiq
+Installed-Size: 11734
+Description:  NTP client for setting system time from NTP servers.

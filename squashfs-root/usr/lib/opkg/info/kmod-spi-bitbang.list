@@ -1,0 +1,2 @@
+/lib/modules/3.10.12/spi-bitbang.ko
+/etc/modules.d/91-spi-bitbang

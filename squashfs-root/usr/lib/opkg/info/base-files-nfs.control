@@ -1,0 +1,13 @@
+Package: base-files-nfs
+Version: 1
+Depends: libc
+Provides: 
+Source: lantiq/ltq_gpon_onu/base-files-nfs
+Section: base
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: Lantiq
+Architecture: lantiq
+Installed-Size: 770
+Description:  This package contains files and system scripts to use a NFS root.

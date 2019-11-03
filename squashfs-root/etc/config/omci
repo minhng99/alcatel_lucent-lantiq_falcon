@@ -1,0 +1,3 @@
+config 'omci' 'default'
+	option 'mib_file' '/etc/mibs/sfp_alu.ini'
+	option 'status_file' '/tmp/omci_status'

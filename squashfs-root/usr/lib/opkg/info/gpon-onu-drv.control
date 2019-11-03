@@ -1,0 +1,13 @@
+Package: gpon-onu-drv
+Version: 6.4.2-3
+Depends: libc, libpthread, librt, gpon-libs
+Provides: 
+Source: lantiq/ltq_gpon_onu/gpon-onu-drv
+Section: driver
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: Lantiq
+Architecture: lantiq
+Installed-Size: 51814
+Description:  GPON ONU Control Application

@@ -1,0 +1,13 @@
+Package: kernel
+Version: 3.10.12-1-06684b84413315e7db7ee9e336433c48
+Depends: libc
+Provides: 
+Source: package/kernel
+Section: sys
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: OpenWrt Developers Team <openwrt-devel@openwrt.org>
+Architecture: lantiq
+Installed-Size: 105
+Description:  Virtual kernel package

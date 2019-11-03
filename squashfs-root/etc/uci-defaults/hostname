@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# Copyright (C) 2010 OpenWrt.org
+#
+
+. /lib/falcon.sh
+
+board=$(falcon_board_name)
+
+set_hostname() {
+	uci set system.@system[0].hostname=${board}
+	uci commit system
+}
+
+if [ -n "${board}" ]; then
+	set_hostname
+fi

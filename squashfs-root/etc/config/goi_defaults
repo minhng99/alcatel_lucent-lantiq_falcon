@@ -1,0 +1,224 @@
+# FALCON GOI configuration values
+# -- this is an example --
+
+config goi global                                         # global GOI configuration #
+	option CalibrationTimestamp             "default" # date/time of calibration
+	option TempMonitorInterval                 "1000" # [ms] time interval to check for a temperature change and trigger dual loop control
+	option TempMonitorThreshold_MPDcorrection     "3" # [K] threshold to force MPD offset calibration and gain correction
+	option LaserAgeStoreCycle                 "43200" # [s] active net transmission time in seconds
+                                                      #     to store system timestamp/laser age into file
+                                                      #     and update laser_ref (base) table (default: 1200)
+	option Polarity_Rx                            "0" # [0/1] regular polarity (1) or inverse polarity (0) for RX
+	option Polarity_Bias                          "1" # [0/1] regular polarity (1) or inverse polarity (0) for Bias
+	option Polarity_Mod                           "1" # [0/1] regular polarity (1) or inverse polarity (0) for Mod
+
+	option Temp_IntCorr_AlarmYellow_Set         "390" # [K] corrected internal temperature for setting alarm yellow
+	option Temp_IntCorr_AlarmYellow_Clear       "370" # [K] corrected internal temperature for clearing alarm yellow
+	option Temp_IntCorr_AlarmRed_Set            "420" # [K] corrected internal temperature for setting alarm red
+	option Temp_IntCorr_AlarmRed_Clear          "400" # [K] corrected internal temperature for clearing alarm red
+
+
+config goi ranges                                         # minimum / maximum defines
+	option TableTemp_ExtCorr_Min                "223" # [K] minimum corrected external temperature for
+	                                                  #     tables Table_Pth, Table_LaserRef, Table_MPDresp_corr
+	option TableTemp_ExtCorr_Max                "423" # [K] maximum corrected external temperature for: 373
+	                                                  #     tables Table_Pth, Table_LaserRef, Table_MPDresp_corr
+	option TableTemp_ExtNom_Min                 "200" # [K] minimum uncorrected external temperature for
+	                                                  #     tables Table_TempExt_corr
+	option TableTemp_ExtNom_Max                 "450" # [K] maximum uncorrected external temperature for
+	                                                  #     tables Table_TempExt_corr
+	option TableTemp_IntCorr_Min                "223" # [K] minimum corrected internal temperature
+	option TableTemp_IntCorr_Max                "473" # [K] maximum corrected internal temperature: 373
+	option TableTemp_IntNom_Min                 "200" # [K] minimum uncorrected internal temperature
+	option TableTemp_IntNom_Max                 "450" # [K] maximum uncorrected internal temperature
+
+	option Ibias_Max                             "60" # [mA] absolute maximum laser bias current
+	option Imod_Max                              "80" # [mA] absolute maximum laser modulation current
+	option Iavg_Max                              "80" # [mA] maximum average current Iavg = Ibias + Imod/2
+	option IbiasImod_Max                        "120" # [mA] absolute maximum total laser current (bias + modulation)
+	option CInt_Bias_Max                          "7" # [0..10] maximum integration coefficient for Bias
+	option CInt_Mod_Max                           "7" # [0..10] maximum integration coefficient for Modulation
+
+	option VAPD_Min                              "20" # [V] DCDC APD minimum voltage
+	option VAPD_Max                              "60" # [V] DCDC APD maximum voltage
+	option VCore_Min                           "0.95" # [V] DCDC Core minimum voltage
+	option VCore_Max                            "1.1" # [V] DCDC Core maximum voltage
+	option VDDR_Min                             "1.3" # [V] DCDC DDR minimum voltage
+	option VDDR_Max                             "2.0" # [V] DCDC DDR maximum voltage
+
+	option Power_Measure_Min                   "0.30" # [uW] optical power minimum value for report
+	
+	option MonitorDarkCurrent_Max              "0.10" # [mA]
+	option SlopeEfficiency_Min                   "50" # [uW/mA] minimum acceptable laser slope efficiency
+	option SlopeEfficiency_Max                  "300" # [uW/mA] maximum acceptable laser slope efficiency
+	option ImodTest_Max                          "40" # [mA] maximum modulation current for test
+	option Overcurrent_Ibias_Thr                 "60" # [mA] absolute laser bias current threshold for rogue detection
+	option Overcurrent_Imod_Thr                  "80" # [mA] absolute laser modulation current threshold for rogue detection
+	option Overcurrent_IbiasImod_Thr            "100" # [mA] absolute laser bis + modulation current
+
+config goi temperature_tables
+	option Tci_Ith_low                           "50" # [K] initial characteristic Temperature for Ith extrapolation to lower temperatures
+	option Tci_Ith_high                          "40" # [K] initial characteristic Temperature for Ith extrapolation to higher temperatures
+	option Tci_SE_low                          "-200" # [K] initial characteristic Temperature for SE extrapolation to lower temperatures
+	option Tci_SE_high                         "-100" # [K] initial characteristic Temperature for SE extrapolation to higher temperatures
+	option Tcd_Ith_low                           "30" # [K] temperature space for recalculation of Tc_Ith_low
+	option Tcd_Ith_high                          "30" # [K] temperature space for recalculation of Tc_Ith_high
+	option Tcd_SE_low                            "30" # [K] temperature space for recalculation of Tc_SE_low
+	option Tcd_SE_high                           "30" # [K] temperature space for recalculation of Tc_SE_high
+
+	option Tref                               "300.0" # [K] reference temperature
+	option VAPD_bd_ref                         "38.0" # [V] breakdown voltage at reference temperature
+	option VAPD_offset                          "3.0" # [V] APD voltage offset from breakdown
+	option VAPD_scal_ref                       "0.04" # [V/K] change of APD voltage VAPD with temperature
+	option VAPD_ext_inductivity                  "12" # [uH] external coil (inductance)
+	option VAPD_ext_supply                     "3.30" # [V] external supply voltage
+	option VAPD_efficiency                       "50" # [%] converter efficiency
+	option VAPD_current_limit                  "2.00" # [mA] APD maximum current
+
+config goi dcdc_apd                                       # DC/DC APD converter configuration #
+	option Rdiv_low                           "10000" # [Ohm] Voltage divider ext_att = (Rdiv_high + Rdiv_low) / Rdiv_low
+	option Rdiv_high                         "294000" # [Ohm] Voltage divider ext_att = (Rdiv_high + Rdiv_low) / Rdiv_low
+
+config goi transmitter                                    # optical transmitter configuration #
+	option TxEnableDelay                          "8" # [bits] TX FIFO start configuration <64 *4
+
+config goi transmit_power                                 # optical bosa transmit power configuration #
+	option P0_0                                 "121" # [uW] low  power level at reference transmit power
+	option P1_0                                "3160" # [uW] high power level at reference transmit power
+	option P0_1                                  "80" # [uW] low  power level at reference -3 dB transmit power
+	option P1_1                                "1920" # [uW] high power level at reference -3 dB transmit power
+	option P0_2                                  "50" # [uW] low  power level at reference -6 dB transmit power
+	option P1_2                                 "950" # [uW] high power level at reference -6 dB transmit power
+	option Pth                                    "6" # [uW] optical transmit power at laser threshold
+
+config goi monitor                                        # optical transmitter monitor diode configuration #
+	option TiaGain_PL0                            "0" # [-] FcsiGVS selector for reference transmit power
+	option TiaGain_PL1                            "1" # [-] FcsiGVS selector for reference -3 dB transmit power
+	option TiaGain_PL2                            "2" # [-] FcsiGVS selector for reference -6 dB transmit power
+	option TiaGain_Global                         "3" # [-] FcsiGVS selector for global measurements e.g., coarse fine ratio
+
+	option MPD_Calibration_PL0                    "3" # [2/3] configure 2=100uA or 3=1mA MPD calibration
+	                                                  #       for reference transmit power
+	option MPD_Calibration_PL1                    "2" # [2/3] configure 2=100uA or 3=1mA MPD calibration
+	                                                  #       for -3 dB transmit power
+	option MPD_Calibration_PL2                    "2" # [2/3] configure 2=100uA or 3=1mA MPD calibration
+	                                                  #       for -6 dB transmit power
+	option MPD_Calibration_Global                 "2" # [2/3] configure 2=100uA or 3=1mA MPD calibration
+	                                                  #       for global measurements i.g. coarse fine ratio
+
+	option ImodScalCorr_PL0                     "1.0" # [] correction factor Imod <-> Dmod at reference transmit power
+	option ImodScalCorr_PL1                     "1.0" # [] correction factor Imod <-> Dmod at -3 dB transmit power
+	option ImodScalCorr_PL2                     "1.0" # [] correction factor Imod <-> Dmod at -6 dB transmit power
+
+	option Dcalref0_PL0                       "620.0" # [] gain calibration at Tref for P0 at reference transmit power
+	option Dcalref1_PL0                       "620.0" # [] gain calibration at Tref for P1 at reference transmit power
+	option Dcalref0_PL1                       "840.0" # [] gain calibration at Tref for P0 at -3 dB transmit power
+	option Dcalref1_PL1                       "840.0" # [] gain calibration at Tref for P1 at -3 dB transmit power
+	option Dcalref0_PL2                       "1160.0" # [] gain calibration at Tref for P0 at -6 dB transmit power
+	option Dcalref1_PL2                       "1160.0" # [] gain calibration at Tref for P1 at -6 dB transmit power
+
+	option Dref0_PL0                          "-40.0" # [] codeword at Tref for P0 at reference transmit power
+	option Dref1_PL0                         "3400.0" # [] codeword at Tref for P1 at reference transmit power
+	option Dref0_PL1                            "0.0" # [] codeword at Tref for P0 at -3 dB transmit power
+	option Dref1_PL1                         "2600.0" # [] codeword at Tref for P1 at -3 dB transmit power
+	option Dref0_PL2                           "10.0" # [] codeword at Tref for P0 at -6 dB transmit power
+	option Dref1_PL2                         "1800.0" # [] codeword at Tref for P1 at -6 dB transmit power
+
+	option CoarseFineRatio                    "20.00" # [] coarse fine ratio (can be measured)
+	option PowerSave                              "1" # [0/1] powersave mode is inactiv (0) or activ (1)
+	option CID0_Size                              "8" # [dec] number of CID bits used for P0 regulation
+	option CID1_Size                              "8" # [dec] number of CID bits used for P1 regulation
+	option CID0_MatchAll                          "0" # [0/1] any (0) or all (1) bits of CID0_mask must be set
+	option CID1_MatchAll                          "0" # [0/1] any (0) or all (1) bits of CID1_mask must be set
+	option CID0_Mask                         "0xFFFF" # [bit pattern] bit mask used for P0 regulation
+	option CID1_Mask                         "0xFFFF" # [bit pattern] bit mask used for P1 regulation
+	option CID0_Mindetbits                        "2" # [1...8] min. subsequent Bits for P0 decision
+	option CID1_Mindetbits                        "2" # [1...8] min. subsequent Bits for P1 decision
+	option rogue_onu_interburst                   "0" # 1 for enabled or 0 for disabled interburst rogue detection
+	option Doffset_PL0                          "-10" # Offset calibration for Power Level 0
+	option Doffset_PL1                          "-20" # Offset calibration for Power Level 1
+	option Doffset_PL2                          "-40" # Offset calibration for Power Level 2
+	option MPDxt_PL0                           "-4.0" # crosstalk coefficient for Power Level 0
+	option MPDxt_PL1                           "-5.0" # crosstalk coefficient for Power Level 1
+	option MPDxt_PL2                           "-6.0" # crosstalk coefficient for Power Level 2
+	option Imodref_PL0                         "36.0" # [mA] Modulation current of Power Level 0 at Tref
+	option Imodref_PL1                         "18.0" # [mA] Modulation current of Power Level 1 at Tref
+	option Imodref_PL2                          "9.0" # [mA] Modulation current of Power Level 2 at Tref
+
+config goi measurement                                    # measurement configuration
+	option Tscal_ref                          "0.540" # [K/mV] = T/Udiode = nk/q*ln(pnIsource/I0+1): typical 0.48..0.54
+	option pnR                                  "1.0" # [Ohm] external series resistance
+	option pnIsource                              "1" # [0/1/2] Source current 20uA (0), 100uA (1), 400uA (2)
+	option RSSI_1490mode                          "1" # [0/1] differential (0), single ended (1)
+	option RSSI_1490shunt_res                  "4990" # [Ohm] shunt resistance
+	option RSSI_1490dark_corr                  "1.20" # [dec] correction factor ~1
+	option RSSI_1550vref                          "1" # [1/2/3] 0,5V (1), 1,0V (2) or 1,5V (3) reference voltage for RSSI 1550
+	option RF_1550vref                            "1" # [1/2/3] 0,5V (1), 1,0V (2) or 1,5V (3) reference voltage for RF 1550
+	option RSSI_1490scal_ref                   "0.12" # [mW/mA] must be calibrated in production = (Rshunt/Voltage divider factor) * (APD efficiency * APD multiplication factor)
+	option RSSI_1550scal_ref                   "0.10" # [mW/V] must be calibrated in production = Rshunt * pin diode efficiency
+	option RF_1550scal_ref                     "0.10" # [mW/V]
+	option RSSI_1490parabolic_ref              "0.2" # [mW/mA^2] must be calibrated in production
+	option RSSI_1490dark_ref                  "0.001" # [mA] must be calibrated in production
+	option RSSI_autolevel                         "1" # [0/1] switch on internal automatic power leveling
+	option RSSI_1490threshold_low                "40" # [uW] RSSI low threshold if automatic power leveling is used
+	option RSSI_1490threshold_high               "70" # [uW] RSSI high threshold if automatic power leveling is used
+	option Tbosa_source                           "1" # (0 = differential pn, 1 = single ended pn, 2 = external device, 3 = internal sensor)
+	option Vdd_scal                             "0.5" # scaling factor for 3.3 V suply voltage measurement;
+	                                                  # Vdd_scal = Rlow/(Rhigh+Rlow); default value: 0.5
+	                                                  # not used if differential temperature measurement is implemented.
+
+
+config goi omu                                            # optical omu configuration #
+	option SignalDetectAvailable                  "1" # [0/1] Indicate if the "signal detect" status signal is available
+	option SignalDetectPort                       "2" # [0..9] GPIO port used as "signal detect" input
+	option LolThreshold_set                      "20" # [%] loss of lock threshold, reference + value
+	option LolThreshold_clear                    "20" # [%] loss of lock threshold, reference - value
+	option LaserSignalSingleEnded                 "1" # [0/1] differential (0), single-ended (1)
+
+config goi bosa                                           # optical bosa configuration #
+	option LoopMode                               "1" # [0/1/2] open loop (1) or dual loop (2)
+	option DeadZoneElimination                    "0" # [0/1] disable (0) or enable (1) Dead Zone Elimination
+	option LolThreshold_set                      "20" # [%] loss of lock threshold, reference + value
+	option LolThreshold_clear                    "20" # [%] loss of lock threshold, reference - value
+	option LosThreshold_set                  "0.0003" # [mW] loss of signal lower threshold
+	option LosThreshold_clear                "0.0007" # [mW] loss of signal higher threshold
+	option RxOverloadThreshold               "0.2000" # [mW] Rx overload upper threshold
+	option CInt_Bias_init                         "2" # [0..10] initialisation integration coefficient for Bias
+	option CInt_Mod_init                          "2" # [0..10] initialisation integration coefficient for Modulation
+	option PICtrl                        "0x00004049" # [32bit hex] Phase Interpolator Control register setting
+
+   	option UpdateThreshold_Bias                   "2" # [%] Update trigger threshold for Bias
+   	option UpdateThreshold_Mod                    "2" # [%] Update trigger threshold for Modulation
+   	option LearningThreshold_Bias                "99" # [%] Learning trigger threshold for Bias, if > ResetThreshold_Bias, no learning active
+   	option LearningThreshold_Mod                 "99" # [%] Learning trigger threshold for Modulation, if > ResetThreshold_Mod, no learning active
+   	option StableThreshold_Bias                   "2" # [%] maximum difference from Bias (average),
+   	                                                  #     which is interpreted as "stable"
+   	option StableThreshold_Mod                    "2" # [%] maximum difference from Modulation (average),
+   	                                                  #     which is interpreted as "stable"
+  	option ResetThreshold_Bias                   "70" # [%] maximum difference from Bias (init value),
+   	                                                  #     which force a Ibias reset
+   	option ResetThreshold_Mod                    "70" # [%] maximum difference from Modulation (init value),
+   	                                                  #     which force a Imod reset
+
+config goi fcsi                                           # fcsi settings; DO NOT CHANGE THESE VALUES #
+	option GVS                               "0x7FBA" # [-] OTA1 & OTA2 gain settings for FCSI GVS register
+
+config goi dcdc_core                                      # DC/DC Core converter configuration #
+	option R_min                               "0.05" # [Ohm] minimum resistance of coil and resistor
+	option R_max                               "0.15" # [Ohm] maximum resistance of coil and resistor
+	option I_min                                  "1" # [mA] DC/DC Core current minimum
+	option I_max                               "4000" # [mA] DC/DC Core current maximum
+	option V_tolerance_input                      "5" # [%] Input voltage tolerance
+	option V_tolerance_target                     "5" # [%] Target voltage tolerance
+	option pmos_on_delay                           4
+	option nmos_on_delay                           7
+
+config goi dcdc_ddr                                       # DC/DC DDR converter configuration #
+	option R_min                               "0.05" # [Ohm] minimum resistance of coil and resistor
+	option R_max                               "0.15" # [Ohm] maximum resistance of coil and resistor
+	option I_min                                  "1" # [mA] DC/DC DDR current minimum
+	option I_max                               "4000" # [mA] DC/DC DDR current maximum
+	option V_tolerance_input                      "5" # [%] Input voltage tolerance
+	option V_tolerance_target                     "5" # [%] Target voltage tolerance
+	option pmos_on_delay                           4
+	option nmos_on_delay                           7

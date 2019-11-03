@@ -1,0 +1,13 @@
+Package: gpon-base-files
+Version: 3
+Depends: libc, uboot-envtools
+Provides: 
+Source: lantiq/ltq_gpon_onu/gpon-base-files
+Section: base
+Status: unknown ok not-installed
+Essential: no
+Priority: optional
+Maintainer: Lantiq
+Architecture: lantiq
+Installed-Size: 5944
+Description:  This package contains files and system scripts for OpenWrt.
